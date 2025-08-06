@@ -47,8 +47,8 @@ export default function Hero() {
         </div> */}
         
         {/* Main heading */}
-        <div className="mb-8 overflow-x-auto">
-          <h2 className="text-6xl sm:text-6xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-md text-center whitespace-nowrap">
+        <div className="mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-md text-center">
             Something New is Coming
           </h2>
           <div className="w-24 h-1 bg-white mx-auto rounded-full shadow-lg"></div>
