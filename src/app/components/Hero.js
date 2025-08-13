@@ -49,7 +49,7 @@ export default function Hero() {
         {/* Main heading */}
         <div className="mb-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-md text-center">
-            Something New is Coming
+            Something New is Here!
           </h2>
           <div className="w-24 h-1 bg-white mx-auto rounded-full shadow-lg"></div>
         </div>
