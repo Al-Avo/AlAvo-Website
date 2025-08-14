@@ -127,15 +127,10 @@ export default function Menu() {
             {/* Embedded Google Map */}
             <div className="w-full h-96 rounded-xl overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.4686472!2d76.20641!3d9.97813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514abec6d3%3A0x6c29c4d7e2c3a8b2!2sAl%20Avo%20-%20Illathupady%2C%20Edavanakkad!5e0!3m2!1sen!2sin!4v1641234567890!5m2!1sen!2sin&markers=color:red%7Clabel:A%7C9.97813,76.20641"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Al Avo Location - Illathupady, Edavanakkad"
-              ></iframe>
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.9891426241998!2d76.2052411!3d10.0999739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08110ded5ea7d3%3A0x881561f2772d73d7!2sAL%20Avo!5e0!3m2!1sen!2ssg!4v1755191192471!5m2!1sen!2ssg"
+              width="100%"
+              height="100%"
+              style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
             {/* Get Directions Button */}

@@ -1,19 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -33,157 +23,87 @@ export default function Navbar() {
   return (
     <>
       <style jsx>{`
-        @keyframes fillUp {
+        @keyframes waveMotion {
           0% {
-            y: 60px;
+            d: path("M0,15 C150,5 300,25 450,20 C600,10 750,30 900,25 C1050,15 1150,5 1200,10 L1200,90 C1150,85 1050,95 900,90 C750,85 600,100 450,95 C300,90 150,85 0,90 Z");
           }
-          95% {
-            y: 0px;
+          25% {
+            d: path("M0,20 C150,10 300,20 450,15 C600,25 750,20 900,30 C1050,20 1150,10 1200,15 L1200,85 C1150,90 1050,85 900,95 C750,90 600,85 450,90 C300,95 150,90 0,85 Z");
+          }
+          50% {
+            d: path("M0,10 C150,20 300,15 450,25 C600,20 750,10 900,20 C1050,25 1150,20 1200,25 L1200,95 C1150,85 1050,90 900,85 C750,95 600,90 450,85 C300,85 150,95 0,95 Z");
+          }
+          75% {
+            d: path("M0,25 C150,15 300,30 450,25 C600,15 750,25 900,15 C1050,25 1150,15 1200,20 L1200,80 C1150,95 1050,80 900,90 C750,80 600,95 450,90 C300,80 150,85 0,80 Z");
           }
           100% {
-            y: 0px;
+            d: path("M0,15 C150,5 300,25 450,20 C600,10 750,30 900,25 C1050,15 1150,5 1200,10 L1200,90 C1150,85 1050,95 900,90 C750,85 600,100 450,95 C300,90 150,85 0,90 Z");
           }
         }
+        
+        .wave {
+          animation: waveMotion 8s ease-in-out infinite;
+        }
       `}</style>
+      
       <nav className="fixed top-0 w-full z-50">
-        {/* Light translucent background for top navbar */}
-        <div className={`absolute top-0 w-full transition-all duration-700 ${
-          !isScrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}>
-          <div className="w-full h-20 bg-black/20 backdrop-blur-sm border-b border-white/10"></div>
-        </div>
-
-        {/* Splash-shaped navbar container */}
-        <div className={`absolute top-0 w-full transition-all duration-700 ${
-          isScrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}>
+        {/* Single wave background */}
+        <div className="absolute top-0 w-full">
           <svg 
-            viewBox="0 0 1200 300" 
-            className="w-full h-56" 
+            viewBox="0 0 1200 100" 
+            className="w-full h-20" 
             preserveAspectRatio="none"
           >
             <defs>
-              <linearGradient id="splashGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#16a34a" />
-                <stop offset="25%" stopColor="#4ade80" />
-                <stop offset="50%" stopColor="#22c55e" />
-                <stop offset="75%" stopColor="#16a34a" />
-                <stop offset="100%" stopColor="#15803d" />
+              <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#15803d" />
+                <stop offset="30%" stopColor="#166534" />
+                <stop offset="60%" stopColor="#16a34a" />
+                <stop offset="100%" stopColor="#14532d" />
               </linearGradient>
-              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="4" stdDeviation="4" floodOpacity="0.3"/>
-                <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
-                <feMerge> 
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
+              
+              <filter id="waveGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.25"/>
               </filter>
             </defs>
-            {/* Main splash shape */}
+            
+            {/* Single animated wave with top and bottom movement */}
             <path 
-              d="M0,25 C80,10 160,45 280,35 C400,25 520,50 640,40 C760,30 880,55 1000,45 C1120,35 1180,20 1200,25 
-               C1190,70 1150,85 1050,90 C950,95 850,75 750,80 C650,85 550,70 450,75 C350,80 250,65 150,70 
-               C50,75 20,60 0,65 Z" 
-              fill="url(#splashGradient)" 
-              filter="url(#glow)"
+              className="wave"
+              d="M0,15 C150,5 300,25 450,20 C600,10 750,30 900,25 C1050,15 1150,5 1200,10 L1200,90 C1150,85 1050,95 900,90 C750,85 600,100 450,95 C300,90 150,85 0,90 Z"
+              fill="url(#waveGradient)" 
+              filter="url(#waveGlow)"
             />
-            {/* Splash droplets */}
-            <circle cx="150" cy="20" r="6" fill="#22c55e" opacity="0.8" />
-            <circle cx="300" cy="40" r="4" fill="#16a34a" opacity="0.7" />
-            <circle cx="600" cy="25" r="5" fill="#4ade80" opacity="0.6" />
-            <circle cx="900" cy="45" r="7" fill="#22c55e" opacity="0.8" />
-            <circle cx="1050" cy="30" r="4" fill="#86efac" opacity="0.7" />
-            {/* Small droplets */}
-            <circle cx="200" cy="15" r="2" fill="#86efac" opacity="0.9" />
-            <circle cx="450" cy="35" r="3" fill="#22c55e" opacity="0.6" />
-            <circle cx="750" cy="20" r="2" fill="#4ade80" opacity="0.8" />
           </svg>
         </div>
 
-        {/* Single navbar content - works for both states */}
+        {/* Navbar content */}
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20">
+            <div className="flex justify-between items-center h-20 pt-2">
               {/* Logo */}
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 flex items-center">
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="relative flex items-center transition-all duration-500 drop-shadow-lg group"
+                  className="relative flex items-center transition-all duration-300"
                 >
                   <img 
                     src="/images/logo1.png" 
                     alt="al.avo logo" 
-                    className="h-15 w-15 object-contain"
+                    className="h-12 w-12 object-contain drop-shadow-lg"
                   />
-                  <div className="relative -ml-6">
-                    {/* Main text with juice fill animation */}
-                    <svg 
-                      width="180" 
-                      height="60" 
-                      viewBox="0 0 180 60" 
-                      className="overflow-visible"
-                    >
-                      <defs>
-                        {/* Gradient for juice fill */}
-                        <linearGradient id="juiceFill" x1="0%" y1="100%" x2="0%" y2="0%">
-                          <stop offset="0%" stopColor="#16a34a" />
-                          <stop offset="30%" stopColor="#22c55e" />
-                          <stop offset="60%" stopColor="#4ade80" />
-                          <stop offset="100%" stopColor="#86efac" />
-                        </linearGradient>
-                        
-                        {/* Mask for fill animation */}
-                        <mask id="fillMask">
-                          <rect x="0" y="0" width="180" height="60" fill="black"/>
-                          <rect 
-                            x="0" 
-                            y="60" 
-                            width="180" 
-                            height="60" 
-                            fill="white"
-                            className="animate-[fillUp_120s_linear_infinite]"
-                          />
-                        </mask>
-                      </defs>
-                      
-                      {/* Background text */}
-                      <text 
-                        x="90" 
-                        y="42" 
-                        textAnchor="middle" 
-                        className="text-4xl font-bold fill-white transition-colors duration-500"
-                      >
-                        al.avo
-                      </text>
-                      
-                      {/* Filled text with juice gradient */}
-                      <text 
-                        x="90" 
-                        y="42" 
-                        textAnchor="middle" 
-                        className="text-4xl font-bold"
-                        fill="url(#juiceFill)"
-                        mask="url(#fillMask)"
-                      >
-                        al.avo
-                      </text>
-                    </svg>
-                  </div>
+                  <img src="/images/alavo_curvy.png" alt="al.avo logo" className="h-12 w-24 object-contain drop-shadow-lg" />
                 </button>
               </div>
 
               {/* Desktop Navigation Links */}
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-10">
+              <div className="hidden md:flex items-center">
+                <div className="flex items-center space-x-8">
                   {navItems.map((item) => (
                     <button
                       key={item.name}
                       onClick={() => scrollToSection(item.id)}
-                      className={`px-4 py-3 rounded-lg text-lg font-semibold transition-all duration-500 ${
-                        isScrolled 
-                          ? 'text-slate-800 hover:text-gray-700 hover:bg-white/30 drop-shadow-sm' 
-                          : 'text-white/90 hover:text-white hover:bg-white/10 drop-shadow-sm'
-                      }`}
+                      className="px-4 py-2 text-lg font-bold transition-all duration-300 text-white hover:text-green-100 hover:scale-105 drop-shadow-lg"
                     >
                       {item.name}
                     </button>
@@ -192,20 +112,16 @@ export default function Navbar() {
               </div>
 
               {/* Mobile menu button */}
-              <div className="md:hidden">
+              <div className="md:hidden flex items-center">
                 <button 
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className={`p-2 transition-all duration-500 drop-shadow-sm ${
-                    isScrolled 
-                      ? 'text-white hover:text-green-100' 
-                      : 'text-white hover:text-green-100'
-                  }`}
+                  className="p-2 transition-all duration-300 text-white hover:text-green-100 hover:scale-105 drop-shadow-lg"
                 >
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     {isMobileMenuOpen ? (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     ) : (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                     )}
                   </svg>
                 </button>
@@ -220,20 +136,12 @@ export default function Navbar() {
             ? 'max-h-64 opacity-100' 
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
-          <div className={`mx-4 mt-3 px-6 pt-4 pb-6 space-y-2 transition-all duration-500 rounded-2xl ${
-            isScrolled 
-              ? 'bg-gradient-to-r from-green-400/90 to-green-500/90 backdrop-blur-md shadow-lg' 
-              : 'bg-black/20 backdrop-blur-md border border-white/20'
-          }`}>
+          <div className="mx-4 px-6 pt-4 pb-6 space-y-2 bg-gradient-to-br from-green-700/95 to-green-800/95 backdrop-blur-lg shadow-xl rounded-2xl">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-4 py-4 rounded-lg text-xl font-semibold transition-all duration-500 transform hover:scale-105 ${
-                  isScrolled 
-                    ? 'text-slate-800 hover:text-gray-700 hover:bg-white/30' 
-                    : 'text-white hover:text-green-100 hover:bg-white/20'
-                }`}
+                className="block w-full text-left px-4 py-3 rounded-lg text-xl font-bold transition-all duration-300 text-white hover:text-green-50 hover:scale-105"
               >
                 {item.name}
               </button>

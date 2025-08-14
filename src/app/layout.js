@@ -1,11 +1,11 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "al.avo - Premium Avocado Juices & More | Illathupady, Edavanakkad",
-  description: "Discover fresh avocado-based juices and avocado-themed items at al.avo. Located in Illathupady, Edavanakkad. Something new is coming soon!",
-  keywords: "avocado juice, fresh juice, healthy drinks, Illathupady, Edavanakkad, al.avo",
+  title: "Al Avo - Premium Avocado Juices & More | Illathupady, Edavanakkad",
+  description: "Discover fresh avocado-based juices and avocado-themed items at Al Avo. Located in Illathupady, Edavanakkad. Something new is coming soon!",
+  keywords: "avocado juice, fresh juice, healthy drinks, Illathupady, Edavanakkad, Al Avo",
   openGraph: {
-    title: "al.avo - Premium Avocado Juices",
+    title: "Al Avo - Premium Avocado Juices",
     description: "Fresh avocado-based juices and more. Something new is coming!",
     type: "website",
   },

@@ -54,7 +54,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand Section */}
             <div className="lg:col-span-2">
-              <h3 className="text-3xl font-bold mb-4">al.avo</h3>
+              <img src="/images/alavo_curvy.png" alt="al.avo logo" className="h-12 w-24 object-contain drop-shadow-lg" />
               <p className="text-white/90 mb-6 leading-relaxed max-w-md">
                 Premium avocado-based juices and treats coming soon to Illathupady, Edavanakkad. 
                 Follow us for updates on our grand opening!
@@ -133,7 +133,7 @@ export default function Footer() {
               <h4 className="text-xl font-semibold mb-4">Coming Soon</h4>
               <div className="space-y-2">
                 <p className="text-white/90 font-medium">Opening Hours:</p>
-                <p className="text-white/70">Mon - Sun: 8:00 AM - 10:00 PM</p>
+                <p className="text-white/70">Mon - Sun: 11:00 AM - 12:00 AM</p>
                 <div className="mt-4 p-3 bg-white/10 rounded-lg">
                   <p className="text-sm text-white/90">
                     🚀 We're preparing something amazing! 
@@ -147,7 +147,7 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-white/70 text-sm">
-              © 2025 al.avo. All rights reserved. Made with 🥑 and ❤️ by <a href="https://www.intensotechlab.com" className="text-white/90 hover:text-white transition-colors duration-200">IntensoTechLab</a>
+              © 2025 Al Avo All rights reserved. Made with 🥑 and ❤️ by <a href="https://www.intensotechlab.com" className="text-white/90 hover:text-white transition-colors duration-200">IntensoTechLab</a>
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-white/70 hover:text-white text-sm transition-colors duration-200">
