@@ -6,4 +6,5 @@
     "html.hover.references": false,
     "scss.hover.documentation": false,
     "scss.hover.references": false,
+    "kiroAgent.configureMCP": "Disabled",
 }

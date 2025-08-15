@@ -8,6 +8,14 @@ export const metadata = {
     title: "Al Avo - Premium Avocado Juices",
     description: "Fresh avocado-based juices and more. Something new is coming!",
     type: "website",
+    images: [
+      {
+        url: '/images/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Al Avo - Premium Avocado Juices',
+      }
+    ],
   },
   icons: {
     icon: '/favicon.svg',
