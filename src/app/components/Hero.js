@@ -68,6 +68,15 @@ export default function Hero() {
           --delay: var(--bubble-delay);
           box-shadow: inset 0 0 15px rgba(150, 255, 150, 0.4), 0 0 25px rgba(79, 121, 66, 0.3);
         }
+
+        @keyframes float-btn {
+          0%, 100% { transform: translateY(0) scale(1.05); }
+          50% { transform: translateY(-4px) scale(1.05); }
+        }
+
+        .hover-float:hover {
+          animation: float-btn 1.5s ease-in-out infinite;
+        }
       `}</style>
 
       <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -143,10 +152,18 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               // className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
-              className="bg-white text-green-800 hover:bg-green-50 px-8 py-4 rounded-full text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
+              className="group inline-flex items-center gap-2 bg-white text-green-800 hover:bg-green-50 px-8 py-4 rounded-full text-lg font-semibold transform transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-green-900/20 backdrop-blur-sm hover-float"
 
             >
-              Follow Us for Updates
+              <span>Follow Us for Updates</span>
+              <svg 
+                className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </a>
 
             {/* Scroll indicator */}
