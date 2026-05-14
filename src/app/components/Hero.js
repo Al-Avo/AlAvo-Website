@@ -9,7 +9,7 @@ export default function Hero() {
     // Responsive bubble count: fewer on mobile
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
     const bubbleCount = isMobile ? 12 : 18; // 12 on mobile, 18 on desktop
-    
+
     for (let i = 0; i < bubbleCount; i++) {
       bubbles.push({
         id: i,
@@ -69,7 +69,7 @@ export default function Hero() {
           box-shadow: inset 0 0 15px rgba(150, 255, 150, 0.4), 0 0 25px rgba(79, 121, 66, 0.3);
         }
       `}</style>
-      
+
       <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
         {/* Background Hero Image */}
         <div className="absolute inset-0">
@@ -82,7 +82,7 @@ export default function Hero() {
             quality={90}
           />
           {/* Green overlay to enhance juice glass effect */}
-          <div 
+          <div
             className="absolute inset-0 opacity-20"
             style={{
               background: 'linear-gradient(to bottom, rgba(79, 121, 66, 0.7), rgba(135, 169, 107, 0.5), rgba(79, 121, 66, 0.8))'
@@ -117,7 +117,7 @@ export default function Hero() {
             </h1>
             <div className="w-24 h-1 bg-white mx-auto rounded-full shadow-lg"></div>
           </div> */}
-          
+
           {/* Main heading */}
           <div className="mb-8">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-md text-center">
@@ -133,12 +133,22 @@ export default function Hero() {
 
           {/* CTA Button - moved down with increased top margin */}
           <div className="space-y-4 mt-55">
-            <button 
+            {/* <button
               className="bg-white text-green-800 hover:bg-green-50 px-8 py-4 rounded-full text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
             >
               Follow Us for Updates
-            </button>
-            
+            </button> */}
+            <a
+              href="https://www.instagram.com/al.avo?igsh=MW5lbm9udGlxcnBjdg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              // className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
+              className="bg-white text-green-800 hover:bg-green-50 px-8 py-4 rounded-full text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
+
+            >
+              Follow Us for Updates
+            </a>
+
             {/* Scroll indicator */}
             <div className="mt-16 animate-bounce">
               <svg className="w-6 h-6 text-white/80 mx-auto drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
