@@ -57,7 +57,7 @@ export default function Footer() {
               <img src="/images/alavo_curvy.png" alt="al.avo logo" className="h-12 w-24 object-contain drop-shadow-lg" />
               <p className="text-white/90 mb-6 leading-relaxed max-w-md">
                 Premium avocado-based juices and treats coming soon to Illathupady, Edavanakkad.
-                Follow us for updates on our grand opening!
+                Follow us for updates!
               </p>
 
               {/* Social Media Links */}
