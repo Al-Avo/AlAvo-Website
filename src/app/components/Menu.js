@@ -80,7 +80,7 @@ export default function Menu() {
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="max-w-full h-auto shadow-sm"
+                      className="w-full h-80 object-cover rounded-lg shadow-sm"
                     />
                   ) : (
                     item.image
