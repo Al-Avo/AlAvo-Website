@@ -5,7 +5,7 @@ export default function Menu() {
     {
       id: 1,
       name: "Avo Classic",
-      description: "Creamy avocado blended with fresh milk",
+      description: "Creamy avocado blended with fresh milk for a rich and delicious taste",
       price: "₹70",
       category: "Avo Specials",
       image: "/images/avo_classic.jpg"
